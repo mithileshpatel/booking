@@ -1,38 +1,219 @@
+/* App.css */
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-background {
+  background-image: url('../public/taxi_background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-container {
+  max-width: 100%;
+  height: 600px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: auto;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+ 
+  padding: 10px;
+  margin-top: 200px;
+ 
+  
+  border-radius: 25px;
+}
+.react-datepicker__week {
+  border-bottom: 1px solid black;
+}
+
+.search-container input,
+.search-container .datepicker,
+.search-container .search-button {
+  padding: 10px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+/* Placeholder text color */
+.search-container input::placeholder,
+.search-container .datepicker::placeholder,
+.search-container .search-button::placeholder {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.btnscr {
+  border-left: 2px solid black;
+  min-width: 11.68rem;
+    max-width: max-content;
+    padding: 2.10rem 1.25rem;
+  
+    background: rgb(228, 110, 0);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: none;
+    border-radius: 0px 32px 32px 0px;
+}
+.btnscr1 {
+  min-width: 11.68rem;
+  background: rgba(255, 255, 255, 0.541);
+  height: 6.5rem;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 14px;
+  
+  border-left: 0.5px solid rgb(58, 57, 57);
+    
+}
+.btnscr2 {
+  border-left: 2px solid black;
+  min-width: 11.68rem;
+    max-width: max-content;
+    padding: 2.10rem 1.25rem;
+    gap: 12px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.541);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: none;
+    border-radius: 32px 0px 0px 32px;
+}
+.search-container .exchange-button {
+  border: none;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+  
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.048);
+    left: 480px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+   position: absolute;
+    z-index: 1;
+   
+}
+.search-container .exchange-button:hover {
+  
+  color: black;
+  border: 2px solid #ffffff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.search-container .exchange-icon {
+  height: 20px;
+  width: 20px;
+  align-items: center;
+  transform: rotate(90deg);
+}
+
+.search-container .search-button {
+  background: rgb(228, 110, 0);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-container .search-button:hover {
+  background: rgb(228, 110, 0);
+}
+
+.search-icon {
+  height: 15px;
+  width: 15px;
+}
+.react-datepicker {
+  background-color: #f0dde8;
+}
+
+.datepicker {
+  padding: 0.5em;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+  background-color: #f0f0f0;
+  color: #333;
+}
+.react-datepicker__time-box {
+background-color: #f0dde8;
+}
+.datepicker__header {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.datepicker__day {
+  color: #333;
+}
+
+.react-datepicker__day--selected {
+  background-color: #d46d0b;
+  color: #fff;
+  border-radius: 50%; /* Makes the element circular */
+ /* Center align the text */
+
+  align-items: center; /* Center align the text */
+  justify-content: center; /* Center align the text */
+}
+
+.datepicker__month-text,
+.datepicker__year-text {
+  color: #007bff;
+}
+
+.react-datepicker-popper {
+  z-index: 1;
+}
+
+
+
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    gap: 10px;
+    width:50%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .search-container input,
+  .search-container .datepicker,
+  .search-container .search-button {
+    width: 70%;
+  }
+  .btnscr{
+    border:0;
   }
 }

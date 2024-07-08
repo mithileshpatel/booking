@@ -1,0 +1,100 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #d9534f;
+    /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .logo {
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  .tab-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: #ccc;
+    cursor: pointer;
+  }
+  
+  .tab.active {
+    background-color: #d9534f;
+    color: white;
+  }
+  
+  .input-container {
+    margin-bottom: 20px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px; /* Increase padding for better spacing */
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+  
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .forgot-password {
+    display: block;
+    margin-bottom: 20px;
+    color: #d9534f;
+    text-decoration: none;
+  }
+  
+  .social-login {
+    text-align: center;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .icon {
+    font-size: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  .facebook-icon {
+    color: #3b5998;
+  }
+  
+  .google-icon {
+    color: #db4a39;
+  }
+  

@@ -71,6 +71,32 @@
     width: 100%;
   }
 }
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  width: 100%;
+  flex-direction: column;
+}
+
+.dropdown a {
+  padding: 10px 15px;
+  white-space: nowrap;
+  color:#333;
+}
+
+.dropdown.show {
+  display: flex;
+}
+
+.nav a:hover .dropdown {
+  display: flex;
+}
 
 @media (max-width: 768px) {
   .header {

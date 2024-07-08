@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import './LoginPage.css';
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
 
-function LoginPage() {
+function LoginPage({ onClose }) {
   const [activeTab, setActiveTab] = useState('login');
 
   return (
     <div className="login-page">
       <div className="login-container">
+        <span className="close" onClick={onClose}>&times;</span>
         <img src="/logo.jpg" alt="Logo" className="logo" />
         <div className="tab-container">
-          <button  className={`tab ${activeTab === 'login' ? 'active' : ''}`} onClick={() => setActiveTab('login')}>
+          <button className={`tab ${activeTab === 'login' ? 'active' : ''}`} onClick={() => setActiveTab('login')}>
             Login
           </button>
           <button className={`tab ${activeTab === 'signup' ? 'active' : ''}`} onClick={() => setActiveTab('signup')}>

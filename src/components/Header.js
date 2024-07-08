@@ -1,12 +1,28 @@
-// Header.js
 import React, { useState } from 'react';
 import './Header.css';
+import LoginPage from '../LoginPage';
 
 function Header() {
   const [activeLink, setActiveLink] = useState("#cab");
+  const [showAccountMenu, setShowAccountMenu] = useState(false);
+  const [showLoginPage, setShowLoginPage] = useState(false);
 
   const handleSetActive = (link) => {
     setActiveLink(link);
+  };
+
+  const toggleAccountMenu = () => {
+    setShowAccountMenu(!showAccountMenu);
+  };
+
+  const handleLoginClick = (e) => {
+    e.preventDefault();
+    setShowAccountMenu(false);
+    setShowLoginPage(true);
+  };
+
+  const closeLoginPage = () => {
+    setShowLoginPage(false);
   };
 
   return (
@@ -46,11 +62,16 @@ function Header() {
         <a 
           href="#account" 
           className={activeLink === "#account" ? "active" : ""}
-          onClick={() => handleSetActive("#account")}
+          onClick={toggleAccountMenu}
         >
           My Account
+          <div className={`dropdown ${showAccountMenu ? 'show' : ''}`}>
+            <a href="#login" onClick={handleLoginClick}>Login</a>
+            <a href="#signup" onClick={() => setShowAccountMenu(false)}>Signup</a>
+          </div>
         </a>
       </nav>
+      {showLoginPage && <LoginPage onClose={closeLoginPage} />}
     </header>
   );
 }

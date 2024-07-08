@@ -57,7 +57,6 @@
   color: white;
 }
 
-
 .btnscr {
   border-left: 2px solid black;
   min-width: 11.68rem;
@@ -70,7 +69,7 @@
     line-height: 24px;
     color: rgb(255, 255, 255);
     cursor: pointer;
-    border: none;
+    border: 2px solid rgb(221, 125, 0);
     border-radius: 0px 32px 32px 0px;
 }
 .btnscr1 {
@@ -81,8 +80,9 @@
   -webkit-box-align: center;
   align-items: center;
   gap: 14px;
-  
+  border: 2px solid rgb(221, 125, 0);
   border-left: 0.5px solid rgb(58, 57, 57);
+  
     
 }
 .btnscr2 {
@@ -98,7 +98,7 @@
     line-height: 24px;
     color: rgb(255, 255, 255);
     cursor: pointer;
-    border: none;
+    border: 2px solid rgb(221, 125, 0);
     border-radius: 32px 0px 0px 32px;
 }
 .search-container .exchange-button {
@@ -167,6 +167,8 @@
   width: 200px;
   background-color: #f0f0f0;
   color: #333;
+  display: flex;
+  flex-direction: column;
 }
 .react-datepicker__time-box {
 background-color: #f0dde8;
@@ -198,7 +200,17 @@ background-color: #f0dde8;
 .react-datepicker-popper {
   z-index: 1;
 }
+.calendar-icon {
+  position: absolute;
 
+  height: 20px;
+  width: 20px;
+  right: 592px;
+  top: 55%;
+  transform: translateY(-50%);
+  pointer-events: none; 
+  cursor: pointer;/* Allow clicks to pass through to the input */
+}
 
 
 @media (max-width: 768px) {

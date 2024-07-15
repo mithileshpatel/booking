@@ -4,6 +4,74 @@ import { FaFacebook, FaGoogle } from 'react-icons/fa';
 
 function LoginPage({ onClose }) {
   const [activeTab, setActiveTab] = useState('login');
+  const [username, setUsername] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    let errors = {};
+
+    if (!username) {
+      errors.username = 'Username is required';
+    }
+
+    if (!mobile) {
+      errors.mobile = 'Mobile number is required';
+    } else if (!/^\d{10}$/.test(mobile)) {
+      errors.mobile = 'Mobile number must be 10 digits';
+    }
+
+    if (!email) {
+      errors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = 'Email is invalid';
+    }
+
+    if (!password) {
+      errors.password = 'Password is required';
+    } else if (password.length < 6) {
+      errors.password = 'Password must be at least 6 characters';
+    }
+
+    setErrors(errors);
+
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSignup = async () => {
+    if (!validate()) {
+      return;
+    }
+
+    const user = {
+      username,
+      mobile,
+      email,
+      password,
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Signup successful', data);
+        onClose(); // Close the modal on successful signup
+      } else {
+        console.error('Signup failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   return (
     <div className="login-page">
@@ -27,11 +95,39 @@ function LoginPage({ onClose }) {
           </div>
         ) : (
           <div className="input-container">
-            <input type="text" placeholder="Enter Username" className="input-field" />
-            <input type="tel" placeholder="Enter Mobile Number" className="input-field" />
-            <input type="email" placeholder="Enter Email" className="input-field" />
-            <input type="password" placeholder="Password" className="input-field" />
-            <button className="login-button">SignUp</button>
+            <input
+              type="text"
+              placeholder="Enter Username"
+              className="input-field"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            {errors.username && <p className="error-message">{errors.username}</p>}
+            <input
+              type="tel"
+              placeholder="Enter Mobile Number"
+              className="input-field"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+            />
+            {errors.mobile && <p className="error-message">{errors.mobile}</p>}
+            <input
+              type="email"
+              placeholder="Enter Email"
+              className="input-field"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            {errors.email && <p className="error-message">{errors.email}</p>}
+            <input
+              type="password"
+              placeholder="Password"
+              className="input-field"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {errors.password && <p className="error-message">{errors.password}</p>}
+            <button className="login-button" onClick={handleSignup}>SignUp</button>
           </div>
         )}
         <div className="social-login">

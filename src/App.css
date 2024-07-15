@@ -89,7 +89,7 @@
   border-left: 2px solid black;
   min-width: 11.68rem;
     max-width: max-content;
-    padding: 2.10rem 1.25rem;
+    padding: 2.15rem 1.25rem;
     gap: 12px;
     align-items: center;
     background: rgba(255, 255, 255, 0.541);
@@ -226,7 +226,7 @@
   height: 20px;
   width: 20px;
   right: 592px;
-  top: 52%;
+  top: 55%;
   transform: translateY(-50%);
   pointer-events: none; 
   cursor: pointer;/* Allow clicks to pass through to the input */

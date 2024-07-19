@@ -3,7 +3,7 @@ import './LoginPage.css';
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
 
 function LoginPage({ onClose }) {
-  const [activeTab, setActiveTab] = useState('login');
+  const [activeTab, setActiveTab] = useState('signup');
   const [username, setUsername] = useState('');
   const [mobile, setMobile] = useState('');
   const [email, setEmail] = useState('');
@@ -53,7 +53,7 @@ function LoginPage({ onClose }) {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/signup', {
+      const response = await fetch('http://localhost:5000/api/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

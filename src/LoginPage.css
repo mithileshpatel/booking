@@ -11,7 +11,10 @@
   z-index: 1000;
 }
 
-
+.error-message{
+  color: red;
+  font-size: small;
+}
   .close {
     position: absolute;
     top: 130px;

@@ -9,6 +9,8 @@ function LoginPage({ onClose }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const validate = () => {
     let errors = {};
@@ -62,14 +64,17 @@ function LoginPage({ onClose }) {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        console.log('Signup successful', data);
+        setSuccessMessage('Signup successful!');
+        setErrorMessage('');
         onClose(); // Close the modal on successful signup
       } else {
-        console.error('Signup failed');
+        const errorData = await response.json();
+        setErrorMessage(errorData.message || 'Signup failed');
+        setSuccessMessage('');
       }
     } catch (error) {
-      console.error('Error:', error);
+      setErrorMessage('An unexpected error occurred');
+      setSuccessMessage('');
     }
   };
 
@@ -79,19 +84,33 @@ function LoginPage({ onClose }) {
         <span className="close" onClick={onClose}>&times;</span>
         <img src="/logo.jpg" alt="Logo" className="logo" />
         <div className="tab-container">
-          <button className={`tab ${activeTab === 'login' ? 'active' : ''}`} onClick={() => setActiveTab('login')}>
+          <button
+            className={`tab ${activeTab === 'login' ? 'active' : ''}`}
+            onClick={() => setActiveTab('login')}
+          >
             Login
           </button>
-          <button className={`tab ${activeTab === 'signup' ? 'active' : ''}`} onClick={() => setActiveTab('signup')}>
+          <button
+            className={`tab ${activeTab === 'signup' ? 'active' : ''}`}
+            onClick={() => setActiveTab('signup')}
+          >
             SignUp
           </button>
         </div>
         {activeTab === 'login' ? (
           <div className="input-container">
-            <input type="text" placeholder="Enter Username/Mobile" className="input-field" />
-            <input type="password" placeholder="Password" className="input-field" />
+            <input
+              type="text"
+              placeholder="Enter Username/Mobile"
+              className="input-field"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="input-field"
+            />
             <button className="login-button">Login</button>
-            <a href="#" className="forgot-password">Forgot password?</a>
+            <button className="forgot-password" onClick={() => alert('Forgot password functionality not implemented')}>Forgot password?</button>
           </div>
         ) : (
           <div className="input-container">
@@ -128,6 +147,8 @@ function LoginPage({ onClose }) {
             />
             {errors.password && <p className="error-message">{errors.password}</p>}
             <button className="login-button" onClick={handleSignup}>SignUp</button>
+            {successMessage && <p className="success-message">{successMessage}</p>}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
         )}
         <div className="social-login">

@@ -1,10 +1,10 @@
 import React from 'react';
+import './AdminFooter.css';
 
 function AdminFooter() {
   return (
-    <footer>
-      <p>Admin Panel Footer</p>
-      {/* Add more admin-specific footer content here */}
+    <footer className="admin-footer">
+      <p>Admin Footer</p>
     </footer>
   );
 }

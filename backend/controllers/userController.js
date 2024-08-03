@@ -22,3 +22,13 @@ exports.signup = async (req, res) => {
     res.status(201).send({ message: 'User registered successfully' });
   });
 };
+// controllers/userController.js
+exports.getUsers = (req, res) => {
+  const query = 'SELECT * FROM users';
+  db.query(query, (err, results) => {
+    if (err) {
+      return res.status(500).send({ error: 'Database error' });
+    }
+    res.status(200).send(results);
+  });
+};

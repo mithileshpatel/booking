@@ -1,18 +1,42 @@
+// src/admin/AdminSidebar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import './AdminSidebar.css';
 
-function AdminSidebar() {
+const AdminSidebar = ({ isSidebarOpen }) => {
   return (
-    <aside>
-      <nav>
+    <aside className={`admin-sidebar ${isSidebarOpen ? 'open' : ''}`}>
+      <nav className="sidebar-nav">
         <ul>
-          <li><Link to="/admin/dashboard">Dashboard</Link></li>
-          <li><Link to="/admin/users">User Management</Link></li>
-          {/* Add more admin links here */}
+          <li>
+            <NavLink to="/admin/dashboard" activeClassName="active">
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin/addBus" activeClassName="active">
+              Add Bus
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin/addHotel" activeClassName="active">
+              Add Hotel
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin/viewCustomer" activeClassName="active">
+              Customers
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/admin/logout" activeClassName="active">
+              Logout
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </aside>
   );
-}
+};
 
 export default AdminSidebar;

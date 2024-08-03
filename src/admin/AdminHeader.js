@@ -1,12 +1,16 @@
+// src/admin/AdminHeader.js
 import React from 'react';
+import './AdminHeader.css';
 
-function AdminHeader() {
+const AdminHeader = ({ toggleSidebar, isSidebarOpen }) => {
   return (
-    <header>
+    <header className="admin-header">
+      <button className="sidebar-toggle" onClick={toggleSidebar}>
+        {isSidebarOpen ? '✖' : '☰'}
+      </button>
       <h1>Admin Panel</h1>
-      {/* Add more admin-specific header content here */}
     </header>
   );
-}
+};
 
 export default AdminHeader;

@@ -1,0 +1,10 @@
+/* src/admin/AdminFooter.css */
+.admin-footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px 0;
+   z-index: 10;
+    bottom: 0;
+    width: 100%;
+  }
+  

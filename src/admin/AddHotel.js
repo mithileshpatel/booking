@@ -1,5 +1,5 @@
-// src/admin/AddHotel.js
 import React, { useState } from 'react';
+import axios from 'axios';
 import './AddHotel.css';
 
 const AddHotel = () => {
@@ -16,9 +16,39 @@ const AddHotel = () => {
     setHotelImage(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic
+
+    const formData = new FormData();
+    formData.append('hotelName', hotelName);
+    formData.append('hotelAddress', hotelAddress);
+    formData.append('hotelCity', hotelCity);
+    formData.append('hotelState', hotelState);
+    formData.append('hotelZip', hotelZip);
+    formData.append('hotelPhone', hotelPhone);
+    formData.append('hotelEmail', hotelEmail);
+    if (hotelImage) formData.append('hotelImage', hotelImage);
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/hotels/add', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      alert('Hotel added successfully!');
+      // Optionally, clear form fields after successful submission
+      setHotelName('');
+      setHotelAddress('');
+      setHotelCity('');
+      setHotelState('');
+      setHotelZip('');
+      setHotelPhone('');
+      setHotelEmail('');
+      setHotelImage(null);
+    } catch (error) {
+      console.error('Error adding hotel:', error);
+      alert('Failed to add hotel.');
+    }
   };
 
   return (

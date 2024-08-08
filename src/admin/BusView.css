@@ -1,0 +1,56 @@
+/* General styling for the BusView component */
+.bus-view {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    background-color: #ddd;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ddd;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  img {
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100px; /* Fixed width for images */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    table {
+      font-size: 14px;
+    }
+  
+    img {
+      width: 80px;
+    }
+  }
+  

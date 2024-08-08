@@ -15,7 +15,9 @@
 .admin-sidebar.open {
   transform: translateX(0);
 }
-
+.menu-item{
+ cursor: pointer; 
+}
 .sidebar-nav {
   margin-top: 100px;
 }
@@ -75,4 +77,35 @@
   border: none;
   cursor: pointer;
   font-size: 20px;
+}
+.submenu {
+ 
+  
+  padding-left: 0;
+  list-style: none;
+}
+
+.submenu-toggle {
+  transition: transform 0.3s ease;
+  cursor:pointer;
+  margin-left: 10px;
+}
+
+.submenu-toggle.open {
+  transform: rotate(180deg);
+}
+.submenu li {
+  padding: 10px 30px;
+  background-color: azure;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.submenu li a {
+  color: #333;
+  font-weight: normal;
+}
+
+.submenu li a:hover {
+  color: #007bff;
 }

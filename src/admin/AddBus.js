@@ -1,5 +1,5 @@
-// src/admin/AddBus.js
 import React, { useState } from 'react';
+import axios from 'axios';
 import './AddBus.css';
 
 const AddBus = () => {
@@ -16,9 +16,30 @@ const AddBus = () => {
     setBusImage(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic
+
+    const formData = new FormData();
+    formData.append('busName', busName);
+    formData.append('busNumber', busNumber);
+    formData.append('busType', busType);
+    formData.append('seatingCapacity', seatingCapacity);
+    formData.append('route', route);
+    formData.append('departureTime', departureTime);
+    formData.append('arrivalTime', arrivalTime);
+    if (busImage) formData.append('busImage', busImage);
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/buses/add', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      alert('Bus added successfully!');
+    } catch (error) {
+      console.error('Error adding bus:', error);
+      alert('Failed to add bus.');
+    }
   };
 
   return (

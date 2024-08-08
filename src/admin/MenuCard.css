@@ -1,0 +1,24 @@
+/* MenuCard.css */
+.menu-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .menu-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .menu-card-title {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .menu-card-description {
+    color: #666;
+  }
+  

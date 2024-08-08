@@ -233,18 +233,62 @@
 
 
 @media (max-width: 768px) {
+ 
+
   .search-container {
     flex-direction: column;
     gap: 10px;
-    width:50%;
+    width: 90%; /* Adjust width for smaller screens */
+    padding: 20px; /* Add padding for better spacing */
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+    border-radius: 0; /* Remove border-radius for form container */
+    text-align: center;
   }
-
+  .form-container {
+    max-width: 100%;
+    top:0;
+    height: 600px;
+  
+  }
+  
   .search-container input,
   .search-container .datepicker,
   .search-container .search-button {
-    width: 70%;
+    width: 100%; /* Ensure inputs take full width */
+  /* Reduce padding for smaller inputs */
+  background:none;
+    border-radius: 0; /* Remove border-radius */
   }
-  .btnscr{
+
+  .search-container .exchange-button {
+    width: 30px; /* Adjust size for smaller screens */
+    height: 30px;
+    font-size: 14px; /* Reduce font size */
+    left: 50%; /* Center horizontally */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%);
+  }
+
+  .btnscr, .btnscr1, .btnscr2 {
+    min-width: 100%; /* Ensure buttons span full width */
+    padding: 2px; /* Adjust padding for better fit */
+    font-size: 16px; /* Reduce font size */
+    height:30px;
+    line-height: 0;
+    border-radius: 0;
     border:0;
   }
+
+  .react-datepicker {
+    width: 100%; /* Ensure datepicker fits within the container */
+    font-size: 14px; /* Reduce font size */
+  }
+
+  .calendar-icon {
+    height: 16px; /* Adjust icon size */
+    width: 16px;
+    right: 10px; /* Adjust position */
+  }
 }
+
+

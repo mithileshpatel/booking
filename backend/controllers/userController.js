@@ -1,34 +1,64 @@
-// controllers/userController.js
-const db = require('../config/db'); // Check this path
+const db = require('../config/dbConfig'); // Ensure the path is correct
 const bcrypt = require('bcrypt');
 
-// Your code here
-
-
+// User Signup
 exports.signup = async (req, res) => {
   const { username, mobile, email, password } = req.body;
 
   if (!username || !mobile || !email || !password) {
-    return res.status(400).send({ error: 'All fields are required' });
+    return res.status(400).json({ error: 'All fields are required' });
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  try {
+    // Check if the email already exists
+    const checkEmailQuery = 'SELECT * FROM users WHERE email = ?';
+    const [existingUser] = await db.execute(checkEmailQuery, [email]);
 
-  const query = 'INSERT INTO users (username, mobile, email, password) VALUES (?, ?, ?, ?)';
-  db.query(query, [username, mobile, email, hashedPassword], (err, result) => {
-    if (err) {
-      return res.status(500).send({ error: 'Database error' });
+    if (existingUser.length > 0) {
+      return res.status(400).json({ error: 'Email is already in use' });
     }
-    res.status(201).send({ message: 'User registered successfully' });
-  });
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const query = 'INSERT INTO users (username, mobile, email, password) VALUES (?, ?, ?, ?)';
+
+    const [result] = await db.execute(query, [username, mobile, email, hashedPassword]);
+
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (error) {
+    console.error('Server error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 };
-// controllers/userController.js
-exports.getUsers = (req, res) => {
-  const query = 'SELECT * FROM users';
-  db.query(query, (err, results) => {
-    if (err) {
-      return res.status(500).send({ error: 'Database error' });
+
+// Get Users
+exports.getUsers = async (req, res) => {
+  try {
+    const query = 'SELECT id, username, mobile, email FROM users';
+    const [rows] = await db.execute(query);
+    res.status(200).json(rows);
+  } catch (error) {
+    res.status(500).json({ error: 'Database error: ' + error.message });
+  }
+};
+
+// Delete Users
+exports.deleteUsers = async (req, res) => {
+  const { userIds } = req.body;
+
+  if (!Array.isArray(userIds) || userIds.length === 0) {
+    return res.status(400).json({ error: 'No user IDs provided' });
+  }
+
+  try {
+    const query = 'DELETE FROM users WHERE id IN (?)';
+    const [result] = await db.execute(query, [userIds]);
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: 'No users found to delete' });
     }
-    res.status(200).send(results);
-  });
+
+    res.status(200).json({ message: 'Users deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Database error: ' + error.message });
+  }
 };

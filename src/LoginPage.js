@@ -55,7 +55,7 @@ function LoginPage({ onClose }) {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/signup', {
+      const response = await fetch('http://localhost:5000/api/signup/signup', { // Ensure endpoint matches
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,10 +69,11 @@ function LoginPage({ onClose }) {
         onClose(); // Close the modal on successful signup
       } else {
         const errorData = await response.json();
-        setErrorMessage(errorData.message || 'Signup failed');
+        setErrorMessage(errorData.error || 'Signup failed'); // Use `error` key
         setSuccessMessage('');
       }
     } catch (error) {
+      console.error('Fetch error:', error);
       setErrorMessage('An unexpected error occurred');
       setSuccessMessage('');
     }

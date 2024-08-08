@@ -1,4 +1,3 @@
-// src/admin/AdminLayout.js
 import React, { useState } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import AdminHeader from './AdminHeader';
@@ -7,6 +6,8 @@ import AdminFooter from './AdminFooter';
 import AddBus from './AddBus';
 import AddHotel from './AddHotel';
 import ViewCustomer from './ViewCustomer';
+import ViewHotels from './ViewHotels';
+import BusView from './BusView'; // Import BusView component
 import './AdminLayout.css';
 
 const AdminLayout = () => {
@@ -25,8 +26,10 @@ const AdminLayout = () => {
           <Routes>
             <Route path="dashboard" element={<div>Dashboard</div>} />
             <Route path="addBus" element={<AddBus />} />
+            <Route path="viewBus" element={<BusView />} /> {/* Add route for BusView */}
             <Route path="addHotel" element={<AddHotel />} />
             <Route path="viewCustomer" element={<ViewCustomer />} />
+            <Route path="viewHotels" element={<ViewHotels />} />
             <Route path="/" element={<Outlet />} />
           </Routes>
         </div>

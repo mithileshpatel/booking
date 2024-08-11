@@ -18,5 +18,10 @@ const upload = multer({ storage });
 // Define routes
 router.post('/add', upload.single('busImage'), busController.addBus);
 router.get('/', busController.getBuses); // Route to get all buses
+<<<<<<< HEAD
+=======
+// busRoutes.js
+router.get('/search', busController.searchBuses);
+>>>>>>> 1310a3f (CHANGES 12/08/2024)
 
 module.exports = router;

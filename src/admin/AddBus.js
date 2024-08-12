@@ -8,11 +8,6 @@ const AddBus = () => {
   const [busType, setBusType] = useState('');
   const [seatingCapacity, setSeatingCapacity] = useState('');
   const [route, setRoute] = useState('');
-<<<<<<< HEAD
-  const [departureTime, setDepartureTime] = useState('');
-  const [arrivalTime, setArrivalTime] = useState('');
-  const [busImage, setBusImage] = useState(null);
-=======
   const [startLocation, setStartLocation] = useState('');
   const [endLocation, setEndLocation] = useState('');
   const [departureTime, setDepartureTime] = useState('');
@@ -20,7 +15,6 @@ const AddBus = () => {
   const [travelDate, setTravelDate] = useState(null);
   const [busImage, setBusImage] = useState(null);
   const [fare, setFare] = useState('');
->>>>>>> 1310a3f (CHANGES 12/08/2024)
 
   const handleImageChange = (e) => {
     setBusImage(e.target.files[0]);
@@ -35,11 +29,6 @@ const AddBus = () => {
     formData.append('busType', busType);
     formData.append('seatingCapacity', seatingCapacity);
     formData.append('route', route);
-<<<<<<< HEAD
-    formData.append('departureTime', departureTime);
-    formData.append('arrivalTime', arrivalTime);
-    if (busImage) formData.append('busImage', busImage);
-=======
     formData.append('startLocation', startLocation);
     formData.append('endLocation', endLocation);
     formData.append('departureTime', departureTime);
@@ -47,7 +36,6 @@ const AddBus = () => {
     formData.append('travelDate', travelDate);
     if (busImage) formData.append('busImage', busImage);
     formData.append('fare', fare);
->>>>>>> 1310a3f (CHANGES 12/08/2024)
 
     try {
       const response = await axios.post('http://localhost:5000/api/buses/add', formData, {
@@ -65,11 +53,7 @@ const AddBus = () => {
   return (
     <div className="add-bus-form">
       <h2>Add Bus</h2>
-<<<<<<< HEAD
-      <form onSubmit={handleSubmit}>
-=======
       <form onSubmit={handleSubmit} className="form-grid">
->>>>>>> 1310a3f (CHANGES 12/08/2024)
         <div className="form-group">
           <label>Bus Name</label>
           <input
@@ -116,8 +100,6 @@ const AddBus = () => {
           />
         </div>
         <div className="form-group">
-<<<<<<< HEAD
-=======
           <label>Start Location</label>
           <input
             type="text"
@@ -136,7 +118,6 @@ const AddBus = () => {
           />
         </div>
         <div className="form-group">
->>>>>>> 1310a3f (CHANGES 12/08/2024)
           <label>Departure Time</label>
           <input
             type="time"
@@ -155,8 +136,6 @@ const AddBus = () => {
           />
         </div>
         <div className="form-group">
-<<<<<<< HEAD
-=======
           <label>Travel Date</label>
           <input
             type="date"
@@ -175,7 +154,6 @@ const AddBus = () => {
           />
         </div>
         <div className="form-group">
->>>>>>> 1310a3f (CHANGES 12/08/2024)
           <label>Bus Image</label>
           <input
             type="file"
@@ -183,11 +161,7 @@ const AddBus = () => {
             required
           />
         </div>
-<<<<<<< HEAD
-        <button type="submit">Add Bus</button>
-=======
         <button type="submit" className="submit-button">Add Bus</button>
->>>>>>> 1310a3f (CHANGES 12/08/2024)
       </form>
     </div>
   );

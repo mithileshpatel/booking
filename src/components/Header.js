@@ -31,36 +31,36 @@ function Header() {
         <img src="LogoMain.png" alt="Cabbridge Logo" />
       </div>
       <nav className="nav">
-        <a 
-          href="#cab" 
+        <a
+          href="#cab"
           className={activeLink === "#cab" ? "active" : ""}
           onClick={() => handleSetActive("#cab")}
         >
           Cab/Taxi
         </a>
-        <a 
-          href="#bus" 
+        <a
+          href="#bus"
           className={activeLink === "#bus" ? "active" : ""}
           onClick={() => handleSetActive("#bus")}
         >
           Bus Booking
         </a>
-        <a 
-          href="#hotels" 
+        <a
+          href="#hotels"
           className={activeLink === "#hotels" ? "active" : ""}
           onClick={() => handleSetActive("#hotels")}
         >
           Hotels
         </a>
-        <a 
-          href="#help" 
+        <a
+          href="#help"
           className={activeLink === "#help" ? "active" : ""}
           onClick={() => handleSetActive("#help")}
         >
           Help
         </a>
-        <a 
-          href="#account" 
+        <a
+          href="#account"
           className={activeLink === "#account" ? "active" : ""}
           onClick={toggleAccountMenu}
         >

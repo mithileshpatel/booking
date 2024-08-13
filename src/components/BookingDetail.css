@@ -1,0 +1,104 @@
+/* src/components/BookingDetail.css */
+
+.bus-results {
+    padding: 20px;
+    background-color: aliceblue;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/* src/App.css */
+
+.info-sections {
+    margin-top: 20px;
+}
+
+.info-sections button {
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.info-sections button:hover {
+    background-color: #0056b3;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+    /* Space between buttons */
+    flex-wrap: wrap;
+    /* Allow wrapping if needed */
+    justify-content: center;
+    /* Center the buttons */
+}
+
+.button-row button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.button-row button:hover {
+    background-color: #0056b3;
+}
+
+.section-content {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.bottom-options {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottom-options button {
+    background-color: #4CAF50;
+    /* Green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.bottom-options button:hover {
+    background-color: #45a049;
+}
+
+.additional-info {
+    margin-top: 20px;
+}
+
+.additional-info h3 {
+    margin-top: 0;
+}

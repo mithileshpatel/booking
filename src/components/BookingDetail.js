@@ -1,26 +1,23 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import './BookingDetail.css';
 
 const BookingDetail = () => {
     const location = useLocation();
     const busData = location.state?.busData || [];
 
     const [selectedBus, setSelectedBus] = useState(null);
-    const [details, setDetails] = useState({
-        seats: false,
-        amenities: false,
-        photos: false,
-        points: false,
-        reviews: false,
-        policies: false,
-    });
+    const [visibleDetail, setVisibleDetail] = useState(null); // New state to track visible detail section
 
     const handleShowDetails = (bus, detailType) => {
-        setSelectedBus(bus);
-        setDetails(prevDetails => ({
-            ...prevDetails,
-            [detailType]: !prevDetails[detailType]
-        }));
+        if (selectedBus === bus && visibleDetail === detailType) {
+            // If the same button is clicked again, hide the section
+            setVisibleDetail(null);
+        } else {
+            // Otherwise, show the selected detail section
+            setSelectedBus(bus);
+            setVisibleDetail(detailType);
+        }
     };
 
     return (
@@ -79,12 +76,12 @@ const BookingDetail = () => {
                             {selectedBus === bus && (
                                 <tr>
                                     <td colSpan="8">
-                                        {details.seats && <div>Seats Information for {bus.name}</div>}
-                                        {details.amenities && <div>Amenities for {bus.name}</div>}
-                                        {details.photos && <div>Photos for {bus.name}</div>}
-                                        {details.points && <div>Boarding & Dropping Points for {bus.name}</div>}
-                                        {details.reviews && <div>Reviews for {bus.name}</div>}
-                                        {details.policies && <div>Booking Policies for {bus.name}</div>}
+                                        {visibleDetail === 'seats' && <div>Seats Information for {bus.name}</div>}
+                                        {visibleDetail === 'amenities' && <div>Amenities for {bus.name}</div>}
+                                        {visibleDetail === 'photos' && <div>Photos for {bus.name} {bus.image && <img src={`http://localhost:5000/uploads/${bus.image}`} alt={bus.name} style={{ width: '100px', height: 'auto' }} />}</div>}
+                                        {visibleDetail === 'points' && <div>Boarding & Dropping Points for {bus.name}</div>}
+                                        {visibleDetail === 'reviews' && <div>Reviews for {bus.name}</div>}
+                                        {visibleDetail === 'policies' && <div>Booking Policies for {bus.name}</div>}
                                     </td>
                                 </tr>
                             )}

@@ -1,14 +1,43 @@
 /* src/components/BookingDetail.css */
-
 .bus-results {
-    padding: 20px;
-    background-color: aliceblue;
+    background-color: rgb(248, 243, 229);
 }
 
-table {
+/* Table styling */
+.bus-results table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
 }
+
+.bus-results th,
+.bus-results td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.bus-results th {
+    background-color: #ff6600;
+    /* Orange heading color */
+    color: white;
+}
+
+.bus-results tr:nth-child(even) {
+    background-color: #f9f9f9;
+    /* Light gray for even rows */
+}
+
+.bus-results tr:nth-child(odd) {
+    background-color: #ffffff;
+    /* White for odd rows */
+}
+
+.bus-results tr:hover {
+    background-color: #f1f1f1;
+    /* Light gray for hover effect */
+}
+
 
 th,
 td {
@@ -23,22 +52,7 @@ th {
 
 /* src/App.css */
 
-.info-sections {
-    margin-top: 20px;
-}
 
-.info-sections button {
-    margin-right: 10px;
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-}
-
-.info-sections button:hover {
-    background-color: #0056b3;
-}
 
 .button-row {
     display: flex;
@@ -57,7 +71,7 @@ th {
     color: #fff;
     cursor: pointer;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 9px;
 }
 
 .button-row button:hover {
@@ -93,12 +107,4 @@ th {
 
 .bottom-options button:hover {
     background-color: #45a049;
-}
-
-.additional-info {
-    margin-top: 20px;
-}
-
-.additional-info h3 {
-    margin-top: 0;
 }

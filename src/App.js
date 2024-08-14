@@ -1,6 +1,6 @@
 // src/App.js
 
-import React, { useState } from 'react'; // Import useState from React
+import React, { useState, useEffect } from 'react'; // Import useState from React
 import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from 'react-router-dom'; // Import useLocation and useNavigate
 import Header from './components/Header';
 import DatePicker from 'react-datepicker';
@@ -23,6 +23,9 @@ const AppContent = () => {
     setEndLocation(temp);
   };
 
+  useEffect(() => {
+    document.title = "Cabridge"; // Set the title
+  }, []);
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
@@ -50,7 +53,7 @@ const AppContent = () => {
             placeholder="From"
             value={startLocation}
             onChange={(e) => setStartLocation(e.target.value)}
-          />
+            required />
         </div>
         <button type="button" className="exchange-button" onClick={exchangeLocations}>
           <img src="up-down.png" alt="Exchange" className="exchange-icon" />
@@ -61,7 +64,7 @@ const AppContent = () => {
             placeholder="To"
             value={endLocation}
             onChange={(e) => setEndLocation(e.target.value)}
-          />
+            required />
         </div>
         <div className="btnscr1 datepicker-wrapper">
           <DatePicker
@@ -72,7 +75,7 @@ const AppContent = () => {
             dateFormat="Pp"
             placeholderText="Date"
             className="datepicker"
-          />
+            required />
           <img src="calendar.svg" alt="Calendar" className="calendar-icon" />
         </div>
         <div className="btnscr">

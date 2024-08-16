@@ -49,7 +49,7 @@ const BookingDetail = () => {
                                 <td>{bus.arrival_time}</td>
                                 <td>{bus.fare}</td>
                             </tr>
-                            <tr>
+                            <tr className='btn'>
                                 <td colSpan="8">
                                     <div className="button-row">
                                         <button onClick={() => handleShowDetails(bus, 'seats')}>

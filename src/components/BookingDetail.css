@@ -44,6 +44,16 @@ td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
+
+}
+
+tbody tr {
+    height: 100px;
+}
+
+tbody .btn {
+    height: 50px;
+
 }
 
 th {

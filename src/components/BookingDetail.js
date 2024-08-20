@@ -36,10 +36,11 @@ const BookingDetail = () => {
                         <th>Fare</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {busData.map((bus) => (
-                        <React.Fragment key={bus.id}>
-                            <tr>
+
+                {busData.map((bus) => (
+                    <React.Fragment key={bus.id}>
+                        <tbody className='body'>
+                            <tr className='btn'>
                                 <td>{bus.name}</td>
                                 <td>{bus.number}</td>
                                 <td>{bus.type}</td>
@@ -49,27 +50,15 @@ const BookingDetail = () => {
                                 <td>{bus.arrival_time}</td>
                                 <td>{bus.fare}</td>
                             </tr>
-                            <tr className='btn'>
+                            <tr className='btngroup' >
                                 <td colSpan="8">
                                     <div className="button-row">
-                                        <button onClick={() => handleShowDetails(bus, 'seats')}>
-                                            View Seats
-                                        </button>
-                                        <button onClick={() => handleShowDetails(bus, 'amenities')}>
-                                            Amenities
-                                        </button>
-                                        <button onClick={() => handleShowDetails(bus, 'photos')}>
-                                            Bus Photos
-                                        </button>
-                                        <button onClick={() => handleShowDetails(bus, 'points')}>
-                                            Boarding & Dropping Points
-                                        </button>
-                                        <button onClick={() => handleShowDetails(bus, 'reviews')}>
-                                            Reviews
-                                        </button>
-                                        <button onClick={() => handleShowDetails(bus, 'policies')}>
-                                            Booking Policies
-                                        </button>
+                                        <button onClick={() => handleShowDetails(bus, 'seats')}>View Seats</button>
+                                        <button onClick={() => handleShowDetails(bus, 'amenities')}>Amenities</button>
+                                        <button onClick={() => handleShowDetails(bus, 'photos')}>Bus Photos</button>
+                                        <button onClick={() => handleShowDetails(bus, 'points')}>Boarding & Dropping Points</button>
+                                        <button onClick={() => handleShowDetails(bus, 'reviews')}>Reviews</button>
+                                        <button onClick={() => handleShowDetails(bus, 'policies')}>Booking Policies</button>
                                     </div>
                                 </td>
                             </tr>
@@ -85,9 +74,11 @@ const BookingDetail = () => {
                                     </td>
                                 </tr>
                             )}
-                        </React.Fragment>
-                    ))}
-                </tbody>
+                        </tbody>
+
+                    </React.Fragment>
+                ))}
+
             </table>
         </div>
     );

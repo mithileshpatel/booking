@@ -21,8 +21,8 @@
 
 .bus-results th,
 .bus-results td {
-    border: 1px solid #dddddd;
-    text-align: left;
+    border: 0px solid #dddddd;
+    text-align: center;
     padding: 12px 15px;
     /* Increase padding for better spacing */
 }
@@ -35,9 +35,23 @@
     /* Slightly larger font for headers */
 }
 
+tbody {
+    border: 10px solid rgb(248, 243, 229);
+
+
+}
+
+.bus-results tbody .btn {
+    height: 100px;
+}
+
 .bus-results tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     /* Light gray for even rows */
+}
+
+.btngroup {
+    border-top: 0;
 }
 
 .bus-results tr:nth-child(odd) {
@@ -45,10 +59,6 @@
     /* White for odd rows */
 }
 
-.bus-results tr:hover {
-    background-color: #f1f1f1;
-    /* Light gray for hover effect */
-}
 
 /* Button row styling */
 .button-row {
@@ -59,7 +69,7 @@
     /* Allow wrapping if needed */
     justify-content: center;
     /* Center the buttons */
-    margin-top: 10px;
+
     /* Add space above button row */
 }
 
@@ -72,6 +82,10 @@
     cursor: pointer;
     border-radius: 4px;
     font-size: 10px;
+}
+
+table .body {
+    margin-top: 20px;
 }
 
 .button-row button:hover {
@@ -90,26 +104,3 @@
 }
 
 /* Bottom options styling */
-.bottom-options {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.bottom-options button {
-    background-color: #4CAF50;
-    /* Green */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-.bottom-options button:hover {
-    background-color: #45a049;
-}

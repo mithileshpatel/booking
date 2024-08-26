@@ -18,6 +18,7 @@ app.use('/uploads', express.static('uploads')); // Serve static files from uploa
 app.use('/api/hotels', hotelRoutes);
 app.use('/api/buses', busRoutes);
 app.use('/api/signup', userRoutes);
+
 app.use((req, res, next) => {
   res.status(404).json({ error: 'Not Found' });
 });
@@ -26,7 +27,6 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Internal Server Error' });
 });
-
 
 // Start Server
 app.listen(port, () => {

@@ -2,7 +2,7 @@
 .admin-header {
   display: flex;
   align-items: center;
-  padding: 5px ;
+  padding: 5px;
   background-color: #007bff;
   color: white;
   justify-content: space-between;
@@ -20,7 +20,7 @@
   border: none;
   cursor: pointer;
   font-size: 14px;
-  
+
 }
 
 .sidebar-toggle:focus {
@@ -31,7 +31,7 @@
   .admin-header h1 {
     font-size: 20px;
   }
-  
+
   .sidebar-toggle {
     font-size: 20px;
   }

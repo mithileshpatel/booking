@@ -1,44 +1,45 @@
 /* src/admin/AdminLayout.css */
 .admin-layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .admin-header {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-  }
-  
-  .admin-content {
-    display: flex;
-    flex: 1;
-    background-color: rgb(1, 13, 24);
-  }
-  
-  .admin-sidebar {
-    width: 200px;
-    background-color: #f4f4f4;
-    padding: 1rem;
-  }
-  
-  .admin-main {
-    flex: 1;
-    padding: 1rem;
-  }
-  
-  .admin-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-  }
-  .menu-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin:50px;
-    padding:50px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.admin-header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+.admin-content {
+  display: flex;
+  flex: 1;
+  background-color: rgb(1, 13, 24);
+}
+
+.admin-sidebar {
+  width: 200px;
+  background-color: #f4f4f4;
+  padding: 1rem;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+
+.admin-footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.menu-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 50px;
+  padding: 50px;
+}

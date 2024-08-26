@@ -4,10 +4,15 @@ import AdminHeader from './AdminHeader';
 import AdminSidebar from './AdminSidebar';
 import AdminFooter from './AdminFooter';
 import AddBus from './AddBus';
-import AddHotel from './AddHotel';
+import AddAmenity from './AddAmenity';
+import AddSeat from './AddSeat';
+import AddBoardingDroppingPoint from './AddBoardingDroppingPoint';
+import AddReview from './AddReview';
+import AddPolicy from './AddPolicy';
+import BusView from './BusView';
 import ViewCustomer from './ViewCustomer';
 import ViewHotels from './ViewHotels';
-import BusView from './BusView'; // Import BusView component
+import AddHotel from './AddHotel';
 import './AdminLayout.css';
 
 const AdminLayout = () => {
@@ -26,10 +31,15 @@ const AdminLayout = () => {
           <Routes>
             <Route path="dashboard" element={<div>Dashboard</div>} />
             <Route path="addBus" element={<AddBus />} />
-            <Route path="viewBus" element={<BusView />} /> {/* Add route for BusView */}
-            <Route path="addHotel" element={<AddHotel />} />
+            <Route path="addAmenity" element={<AddAmenity />} />
+            <Route path="addSeat" element={<AddSeat />} />
+            <Route path="addBoardingDroppingPoint" element={<AddBoardingDroppingPoint />} />
+            <Route path="addReview" element={<AddReview />} />
+            <Route path="addPolicy" element={<AddPolicy />} />
+            <Route path="viewBus" element={<BusView />} />
             <Route path="viewCustomer" element={<ViewCustomer />} />
             <Route path="viewHotels" element={<ViewHotels />} />
+            <Route path="addHotel" element={<AddHotel />} />
             <Route path="/" element={<Outlet />} />
           </Routes>
         </div>

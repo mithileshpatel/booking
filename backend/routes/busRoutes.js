@@ -15,10 +15,24 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Define routes
-router.post('/add', upload.single('busImage'), busController.addBus);
+// Routes for managing buses
+router.post('/add', upload.single('busImage'), busController.addBus);  // Route to add a new bus with an image
 router.get('/', busController.getBuses); // Route to get all buses
-// busRoutes.js
-router.get('/search', busController.searchBuses);
+router.get('/search', busController.searchBuses); // Route to search buses by criteria
+
+// Routes for managing bus amenities
+router.post('/bus_amenities/add', upload.single('amenityImage'), busController.addAmenity); // Route to add an amenity with an image
+
+// Routes for managing bus seats
+router.post('/seats/add', busController.addBusSeat); // Route to add a bus seat
+
+// Routes for managing boarding and dropping points
+router.post('/boardingDroppingPoints/add', busController.addBoardingDroppingPoint); // Route to add boarding/dropping points
+
+// Routes for managing bus reviews
+router.post('/reviews/add', busController.addBusReview); // Route to add a bus review
+
+// Routes for managing booking policies
+router.post('/booking_policies/add', busController.addBookingPolicy); // Route to add a booking policy
 
 module.exports = router;

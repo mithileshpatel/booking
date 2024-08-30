@@ -104,3 +104,122 @@ table .body {
 }
 
 /* Bottom options styling */
+.bus-results {
+    padding: 20px;
+    background-color: #f8f3e5;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+h3 {
+    color: #ff6600;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 10px;
+}
+
+.detail-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detail-list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.detail-list li strong {
+    color: #333;
+}
+
+p {
+    color: #666;
+    font-family: 'Arial', sans-serif;
+}
+
+
+.seating-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+}
+
+.deck {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.seat-row {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.seat {
+    width: 35px;
+    height: 35px;
+    background-color: #ffffff;
+    /* White background for the seat */
+    border: 2px solid #ccc;
+    /* Light gray border */
+    border-radius: 4px;
+    /* Rounded corners to resemble a bus seat */
+    display: inline-block;
+    margin: 5px;
+    position: relative;
+    /* For positioning the handle */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.seat::before {
+    content: '';
+    width: 12px;
+    height: 20px;
+    background-color: #ccc;
+    /* Handle color */
+    position: absolute;
+    right: -6px;
+    /* Positioning the handle outside the seat */
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 2px;
+    /* Slightly rounded handle edges */
+}
+
+.seat.selected {
+    background-color: #929292f3;
+    /* Green for selected seats */
+    border-color: #1d1d1d;
+    color: white;
+}
+
+.seat.booked {
+    background-color: #f44336;
+    /* Red for booked seats */
+    border-color: #d32f2f;
+    cursor: not-allowed;
+}
+
+.seat:hover:not(.booked) {
+    background-color: #e0e0e0;
+    /* Light gray on hover */
+}
+
+.seat.vip {
+    border-color: #ffa726;
+    /* Orange border for VIP seats */
+}

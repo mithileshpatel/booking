@@ -34,5 +34,9 @@ router.post('/reviews/add', busController.addBusReview); // Route to add a bus r
 
 // Routes for managing booking policies
 router.post('/booking_policies/add', busController.addBookingPolicy); // Route to add a booking policy
-
+router.get('/seats/:busId', busController.getBusSeats);
+router.get('/amenities/:busId', busController.getBusAmenities);
+router.get('/points/:busId', busController.getBoardingDroppingPoints);
+router.get('/reviews/:busId', busController.getBusReviews);
+router.get('/policies/:busId', busController.getBookingPolicies);
 module.exports = router;

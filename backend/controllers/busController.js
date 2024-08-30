@@ -162,3 +162,52 @@ exports.addBookingPolicy = async (req, res) => {
     res.status(500).json({ message: 'Failed to add booking policy', error: error.message });
   }
 };
+exports.getBusSeats = async (req, res) => {
+  try {
+    const busId = req.params.busId;
+    const seats = await db.query('SELECT * FROM bus_seats WHERE bus_id = ?', [busId]);
+    res.json(seats[0]);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to retrieve bus seats' });
+  }
+};
+
+exports.getBusAmenities = async (req, res) => {
+  try {
+    const busId = req.params.busId;
+    const amenities = await db.query('SELECT * FROM bus_amenities WHERE bus_id = ?', [busId]);
+    res.json(amenities[0]);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to retrieve bus amenities' });
+  }
+};
+
+exports.getBoardingDroppingPoints = async (req, res) => {
+  try {
+    const busId = req.params.busId;
+    const points = await db.query('SELECT * FROM boarding_dropping_points WHERE bus_id = ?', [busId]);
+    res.json(points[0]);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to retrieve boarding & dropping points' });
+  }
+};
+
+exports.getBusReviews = async (req, res) => {
+  try {
+    const busId = req.params.busId;
+    const reviews = await db.query('SELECT * FROM bus_reviews WHERE bus_id = ?', [busId]);
+    res.json(reviews[0]);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to retrieve bus reviews' });
+  }
+};
+
+exports.getBookingPolicies = async (req, res) => {
+  try {
+    const busId = req.params.busId;
+    const policies = await db.query('SELECT * FROM booking_policies WHERE bus_id = ?', [busId]);
+    res.json(policies[0]);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to retrieve booking policies' });
+  }
+};
